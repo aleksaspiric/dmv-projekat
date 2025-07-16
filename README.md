@@ -59,3 +59,53 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+Pokretanje projekta (instalacija)
+
+neophodni laravel, xampp(apache i mysql)
+
+Kloniraj repozitorijum
+   ```bash
+   git clone https://github.com/aleksaspiric/dmv-projekat
+   cd dmv-projekat
+
+Instaliraj zavisnosti
+
+composer install
+npm install
+
+Kreiraj .env fajl i generiši ključ
+
+cp .env.example .env
+php artisan key:generate
+
+Podesi bazu u .env fajlu
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=dmv_baza
+DB_USERNAME=root
+DB_PASSWORD=
+
+Pokreni migracije i seedere
+
+php artisan migrate --seed
+
+Pokreni(moraju biti aktivni) 
+
+npm run dev
+php artisan serve
+
+Test podaci:
+
+Admin	admin@admin.com	admin //ovo je tacan email i password, user email-ovi se generisu seederom, a sifra je uvek password
+User	user1@example.com	password
+User	user2@example.com	password
+
+importovanje SQL dump ručno:
+
+1. Otvoriti `phpMyAdmin`
+2. Napraviti svoju bazu (`dmv_baza`)
+3. Klikni Import
+4. Učitaj fajl `dmv_sql_dump` poslat u mejlu.
